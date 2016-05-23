@@ -9,7 +9,8 @@ sh vpn_server.sh
 ```
 
 # Install L2tp VPN Client
-1. Install xl2tpd libreswan and ipsec
+1. Modify XXX of these files to yours
+-  Install xl2tpd libreswan and ipsec
 ```
 yum -y install xl2tpd libreswan ipsec
 ```
