@@ -117,21 +117,21 @@ function start(){
     echo 'nameserver 8.8.4.4' >> /etc/resolv.conf
     ip route
     route -n
-	wget -qO- http://ipv4.icanhazip.com; echo
+    wget -qO- http://ipv4.icanhazip.com; echo
 }
 
 function stop(){
     /bin/echo "d myvpn" > /var/run/xl2tpd/l2tp-control
-	strongswan down myvpn
+    strongswan down myvpn
     systemctl stop xl2tpd
 
     VPN_GW=$(getVPNGateWay)
     ip route del $VPN_SERVER_IP via $VPN_GW dev $IFACE
     ip route add default via $VPN_GW
-	echo "nameserver $VPN_GW" > /etc/resolv.conf
+    echo "nameserver $VPN_GW" > /etc/resolv.conf
     ip route
     route -n
-	wget -qO- http://ipv4.icanhazip.com; echo
+    wget -qO- http://ipv4.icanhazip.com; echo
 }
 
 $1
